@@ -7,6 +7,8 @@ module.exports = function(config) {
       '../assets/libs/angular.js',
       '../assets/libs/angular-route.js',
       '../assets/libs/angular-mocks.js',
+      '../assets/libs/Bacon.js',
+      '../assets/libs/lodash.min.js',
       'app.js',
       'MoviesCtrl.js',
       '../test/*spec.js'

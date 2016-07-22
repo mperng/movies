@@ -10,13 +10,14 @@ angular.module('moviesApp')
             var year = $scope.newMovie.year;
             var rating = $scope.newMovie.rating;
             // add to movies data structure
-            $scope.movies[next_id++] = {
+            $scope.movies.push({
+                id: next_id++,
                 title: title,
                 genre: genre,
                 actors: actors,
                 year: year,
                 rating: rating
-            };
+            });
             // clear the fields
             $scope.newMovie.title = '';
             $scope.newMovie.genre = '';
@@ -26,6 +27,8 @@ angular.module('moviesApp')
         };
 
         $scope.deleteMovie = function (id) {
-            delete movie[id];
+            _.remove($scope.movies, function(movie) {
+                return movie.id === id;
+            });
         };
     }]);

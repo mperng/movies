@@ -31,10 +31,26 @@ describe('MoviesCtrl', function() {
         expect(scope.movies !== null);
     	expect(scope.movies[0] !== null);
     	test_movie = scope.movies[0];
+        expect(test_movie.id).toEqual(0);
     	expect(test_movie.title).toEqual('Test Movie');
     	expect(test_movie.genre).toEqual('Test Genre');
     	expect(test_movie.actors).toEqual(['Test Actor1', 'Test Actor2']);
     	expect(test_movie.year).toEqual(1900);
     	expect(test_movie.rating).toEqual(10.0);
+    });
+
+    it('should delete a movie', function() {
+        var controller = createController();
+        scope.movies = [{
+            id: 0,
+            title: 'Test Movie',
+            genre: 'Test Genre',
+            actors: ['Test Actor1', 'Test Actor2'],
+            year: 1900,
+            rating: 10.0
+        }]
+        scope.deleteMovie(0);
+        expect(scope.movies[0]).toEqual(undefined);
+        expect(scope.movies.length).toEqual(0);
     });
 });
