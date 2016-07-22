@@ -4,18 +4,21 @@
     <title>Movies</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="assets/libs/angular.min.js"></script>
-    <script src="assets/libs/angular-mocks.js"></script>
+    <script src="assets/libs/Bacon.js"></script>
+    <script src="assets/libs/lodash.core.min.js"></script>
+    <script src="assets/libs/angular.js"></script>
+    <script src="assets/libs/angular-route.js"></script>
     <script src="app/app.js"></script>
     <script src="app/MoviesCtrl.js"></script>
 </head>
 <body>
 <div class="container-fluid">
-    <div ng-controller="MoviesCtrl">
-    <ul>
-        <li ng-repeat="movie in movies">{{movie.title}}</li>
-    </ul>
-    </div>
+
+    <a href="#/">Home</a>
+    <a href="#/create">Create</a>
+    <a href="#/edit">Edit</a>
+
+    <div ng-view></div>
 </div>
 </body>
 </html>

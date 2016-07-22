@@ -2,6 +2,12 @@ angular.module('moviesApp')
     .controller('MoviesCtrl', ['$scope', function ($scope) {
         var next_id = 0;
         $scope.movies = [];
+        function queryMovie(query) {
+          return _.where($scope.movies, query);
+        }
+        $scope.searchMovie = function (query) {
+            return Bacon.fromPromise(queryMovie(query));
+        }
         $scope.createMovie = function () {
             // capture movie data from fields
             var title = $scope.newMovie.title;
