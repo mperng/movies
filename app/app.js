@@ -1,18 +1,18 @@
-var app = angular.module('moviesApp', ['ngRoute']);
+var app = angular.module('moviesApp', ['ngRoute', 'ngStorage']);
 
 app.config(['$routeProvider', function($routeProvider) {
       $routeProvider
       .when('/', {
         templateUrl : 'app/pages/home.html',
-        controller  : 'MoviesCtrl'
+        controller  : 'MovieCtrl'
       })
       .when('/create', {
         templateUrl : 'app/pages/create.html',
-        controller  : 'MoviesCtrl'
+        controller  : 'MovieCtrl'
       })
       .when('/edit', {
           templateUrl : 'app/pages/edit.html',
-          controller : 'MoviesCtrl'
+          controller : 'MovieCtrl'
       })
       .otherwise({redirectTo: '/'});
     }]);

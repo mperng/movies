@@ -7,10 +7,11 @@ module.exports = function(config) {
       '../assets/libs/angular.js',
       '../assets/libs/angular-route.js',
       '../assets/libs/angular-mocks.js',
+      '../assets/libs/ngStorage.js',
       '../assets/libs/Bacon.js',
       '../assets/libs/lodash.min.js',
       'app.js',
-      'MoviesCtrl.js',
+      'MovieCtrl.js',
       '../test/*spec.js'
     ],
     logLevel: config.LOG_DEBUG,

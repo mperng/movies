@@ -1,1 +1,27 @@
-<h1>Create</h1>
+<h1>New Movie</h1>
+
+<div ng-controller="MovieCtrl">
+  <form name="form" ng-submit="createMovie()" novalidate>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" ng-model="newMovie.title" id="title" placeholder="Enter a Title..." required>
+  </div>
+  <div class="form-group">
+    <label for="genre">Genre</label>
+    <input type="text" class="form-control" ng-model="newMovie.genre" id="genre" placeholder="Genre" required>
+  </div>
+  <div class="form-group">
+    <label for="actors">Actors</label>
+    <input type="text" class="form-control" ng-model="newMovie.actors" id="actors" placeholder="Actors" required>
+  </div>
+  <div class="form-group">
+      <label for="year">Year</label>
+      <select ng-model="newMovie.year" ng-options="y for y in years" id="year" style="width:auto;" class="form-control selectWidth" required></select>
+  </div>
+  <div class="form-group">
+      <label for="rating">Rating</label>
+      <select ng-model="newMovie.rating" ng-options="r for r in ratings" id="rating" style="width:auto;" class="form-control selectWidth" required></select>
+  </div>
+  <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">Submit</button>
+</form>
+</div>

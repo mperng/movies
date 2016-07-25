@@ -1,4 +1,4 @@
-describe('MoviesCtrl', function() {
+describe('MovieCtrl', function() {
     var scope, $location, createController;
     beforeEach(function() {
         localStorage.clear();
@@ -12,7 +12,7 @@ describe('MoviesCtrl', function() {
 
         console.log('creating controller function');
         createController = function() {
-            return $controller('MoviesCtrl', {
+            return $controller('MovieCtrl', {
                 '$scope': scope
             });
         };
@@ -21,6 +21,7 @@ describe('MoviesCtrl', function() {
     it('should create a movie', function() {
     	var controller = createController();
         $location.path('/');
+        scope.$storage.movies = [];
         scope.newMovie = {};
     	scope.newMovie.title = 'Test Movie';
         scope.newMovie.genre = 'Test Genre';
@@ -28,9 +29,9 @@ describe('MoviesCtrl', function() {
         scope.newMovie.year = 1900;
         scope.newMovie.rating = 10.0;
         scope.createMovie();
-        expect(scope.movies !== null);
-    	expect(scope.movies[0] !== null);
-    	test_movie = scope.movies[0];
+        expect(scope.$storage.movies !== null);
+    	expect(scope.$storage.movies[0] !== null);
+    	test_movie = scope.$storage.movies[0];
         expect(test_movie.id).toEqual(0);
     	expect(test_movie.title).toEqual('Test Movie');
     	expect(test_movie.genre).toEqual('Test Genre');
@@ -41,7 +42,7 @@ describe('MoviesCtrl', function() {
 
     it('should delete a movie', function() {
         var controller = createController();
-        scope.movies = [{
+        scope.$storage.movies = [{
             id: 0,
             title: 'Test Movie',
             genre: 'Test Genre',
@@ -50,7 +51,7 @@ describe('MoviesCtrl', function() {
             rating: 10.0
         }]
         scope.deleteMovie(0);
-        expect(scope.movies[0]).toEqual(undefined);
-        expect(scope.movies.length).toEqual(0);
+        expect(scope.$storage.movies[0]).toEqual(undefined);
+        expect(scope.$storage.movies.length).toEqual(0);
     });
 });
