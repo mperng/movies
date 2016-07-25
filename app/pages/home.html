@@ -4,7 +4,9 @@
 <input type="text" ng-model="searchBox" placeholder="Search Movie..."/>
 <ul>
     <div id="results"></div>
-    <li ng-repeat="movie in $storage.movies | filter:searchBox ">{{movie}}</li>
+    <div ng-controller="MovieEditFormCtrl">
+    <li ng-repeat="movie in $storage.movies"><a href="#/edit" ng-click="populateEditForm(movie)">{{movie}}</a></li>
     <button type="submit" class="btn btn-primary" ng-click="reset()">Delete Movies</button>
+    </div>
 </ul>
 </div>

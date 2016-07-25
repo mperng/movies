@@ -8,11 +8,11 @@ app.config(['$routeProvider', function($routeProvider) {
       })
       .when('/create', {
         templateUrl : 'app/pages/create.html',
-        controller  : 'MovieCtrl'
+        controller  : 'MovieFormCtrl'
       })
       .when('/edit', {
           templateUrl : 'app/pages/edit.html',
-          controller : 'MovieCtrl'
+          controller : 'MovieEditFormCtrl'
       })
       .otherwise({redirectTo: '/'});
     }]);

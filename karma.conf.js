@@ -12,6 +12,8 @@ module.exports = function(config) {
       '../assets/libs/lodash.min.js',
       'app.js',
       'MovieCtrl.js',
+      'MovieFormCtrl.js',
+      'MovieEditFormCtrl.js',
       '../test/*spec.js'
     ],
     logLevel: config.LOG_DEBUG,
