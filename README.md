@@ -6,5 +6,6 @@ A webpage that manages a home movie collection.
 - jasmine-core
 - karma-jasmine
 - karma-chrome-launcher
-- lodash
+- lodash.js
 - BaconJS
+- ngStorage
