@@ -10,7 +10,7 @@ app.config(['$routeProvider', function($routeProvider) {
         templateUrl : 'app/pages/create.html',
         controller  : 'MovieFormCtrl'
       })
-      .when('/edit', {
+      .when('/edit/:movieId', {
           templateUrl : 'app/pages/edit.html',
           controller : 'MovieEditFormCtrl'
       })

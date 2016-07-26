@@ -7,7 +7,6 @@
             </div>
         </div>
     </form>
-    <div ng-controller="MovieEditFormCtrl">
     <div class="list-content">
         <ul class="list-group">
             <a href="#/edit/{{movie.id}}" class="list-group-item" ng-repeat="movie in $storage.movies | filter:searchBox">
@@ -20,5 +19,4 @@
         </ul>
     </div>
     <button type="submit" class="btn btn-primary" ng-click="reset()">Delete All Movies</button>
-    </div>
 </div>

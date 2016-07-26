@@ -1,24 +1,22 @@
 angular.module('moviesApp')
-    .controller('MovieEditFormCtrl', ['$scope', '$localStorage', '$sessionStorage',
-    function ($scope, $localStorage, $sessionStorage) {
+    .controller('MovieEditFormCtrl', ['$scope', '$localStorage', '$sessionStorage', '$routeParams',
+    function ($scope, $localStorage, $sessionStorage, $routeParams) {
         var init = function() {
             $scope.$storage = $localStorage.$default({ movies: [] });
+            $scope.editMovie = findMovie();
         }
 
-        $scope.populateEditForm = function(movie) {
-            $scope.editMovie = movie;
+        var findMovie = function () {
+            return _.chain($scope.$storage.movies)
+                    .find({id:$routeParams.movieId});
         }
 
-        /*
-        $scope.editMovie = function(valid) {
-            if(valid) {
-                var movie = _.find(objects, _.matchesProperty('id', $scope.editMovie.id));
-                if(movie) {
-
-                }
+        $scope.editMovie = function (invalid) {
+            // add to movies data structure
+            if(!invalid) {
+                findMovie().merge($scope.editMovie);
             }
-        }
-        */
+        };
 
         init();
     }]);
