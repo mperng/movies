@@ -8,20 +8,12 @@ angular.module('moviesApp')
             $scope.newMovie = {};
         }
 
-        $scope.reset = function() {
-            $localStorage.$reset({ movies: [] });
-        }
-
         var getYears = function() {
-            var years = [];
-            for (var i = 2016; i >= 1900; --i){
-                years.push(i);
-            }
-            return years;
+            return _.range(2016, 1899, -1);
         }
 
         var getRatings = function() {
-            return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            return _.range(1,11);
         }
 
         $scope.createMovie = function () {
