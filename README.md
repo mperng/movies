@@ -8,4 +8,4 @@ A webpage that manages a home movie collection.
 - karma-chrome-launcher
 - lodash.js
 - BaconJS
-- ngStorage
+- ngStorage - raynode fork (https://github.com/raynode/ngStorage)

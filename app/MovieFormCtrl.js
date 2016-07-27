@@ -16,6 +16,11 @@ angular.module('moviesApp')
             return _.range(1,11);
         };
 
+        var save = function() {
+            $localStorage.$save();
+            $location.path('/');
+        };
+
         $scope.createMovie = function () {
             // add to movies data structure
             $scope.$storage.movies.push({
@@ -32,8 +37,7 @@ angular.module('moviesApp')
             $scope.newMovie.actors = '';
             $scope.newMovie.year = '';
             $scope.newMovie.rating = '';
-            console.log($scope.$storage.movies);
-            $location.path('/');
+            save();
         };
 
         init();

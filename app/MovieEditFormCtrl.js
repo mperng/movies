@@ -22,7 +22,7 @@ angular.module('moviesApp')
         };
 
         var save = function() {
-            $localStorage.movies = $scope.$storage.movies;
+            $localStorage.$save();
             $location.path('/');
         };
 
