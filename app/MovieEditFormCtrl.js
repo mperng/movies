@@ -1,10 +1,10 @@
 angular.module('moviesApp')
-    .controller('MovieEditFormCtrl', ['$scope', '$localStorage', '$sessionStorage', '$routeParams', '$location',
-    function ($scope, $localStorage, $sessionStorage, $routeParams, $location) {
-        var id = parseInt($routeParams.movieId);
+    .controller('MovieEditFormCtrl', ['$scope', '$routeParams', '$location', 'MovieSvc',
+    function ($scope, $routeParams, $location, MovieSvc) {
+        var id;
         var init = function() {
-            $scope.$storage = $localStorage.$default({ movies: [] });
-            $scope.editMovie = findMovie(id);
+            id = parseInt($routeParams.movieId);
+            $scope.editMovie = MovieSvc.getMovie(id);
             $scope.years = getYears();
             $scope.ratings = getRatings();
         };
@@ -17,24 +17,15 @@ angular.module('moviesApp')
             return _.range(1,11);
         };
 
-        var findMovie = function (id) {
-            return _.find($scope.$storage.movies, {'id':id});
-        };
-
-        var save = function() {
-            $localStorage.$save();
+        $scope.updateMovie = function () {
+            // add to movies data structure
+            MovieSvc.updateMovie(id, $scope.editMovie);
             $location.path('/');
         };
 
-        $scope.updateMovie = function () {
-            // add to movies data structure
-            _.merge(findMovie(id), $scope.editMovie);
-            save();
-        };
-
         $scope.deleteMovie = function () {
-            _.remove($scope.$storage.movies, {'id':id});
-            save();
+            MovieSvc.deleteMovie(id);
+            $location.path('/');
         };
 
         init();

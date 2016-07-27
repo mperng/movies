@@ -1,12 +1,13 @@
 angular.module('moviesApp')
-    .controller('MovieCtrl', ['$scope', '$localStorage', '$sessionStorage',
-    function ($scope, $localStorage, $sessionStorage) {
+    .controller('MovieCtrl', ['$scope', '$location', '$route', 'MovieSvc',
+    function ($scope, $location, $route, MovieSvc) {
         var init = function() {
-            $scope.$storage = $localStorage.$default({ movies: [] });
+            $scope.movies = MovieSvc.getMovies();
         };
 
         $scope.reset = function() {
-            $localStorage.$reset({ movies: [] });
+            MovieSvc.deleteAllMovies();
+            $route.reload();
         };
 
         init();

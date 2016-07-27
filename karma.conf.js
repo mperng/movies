@@ -14,6 +14,7 @@ module.exports = function(config) {
       'MovieCtrl.js',
       'MovieFormCtrl.js',
       'MovieEditFormCtrl.js',
+      'MovieSvc.js',
       '../test/*spec.js'
     ],
     logLevel: config.LOG_INFO,
