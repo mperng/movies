@@ -1,20 +1,20 @@
 angular.module('moviesApp')
-    .controller('MovieFormCtrl', ['$scope', '$localStorage', '$sessionStorage',
-    function ($scope, $localStorage, $sessionStorage) {
+    .controller('MovieFormCtrl', ['$scope', '$localStorage', '$sessionStorage', '$location',
+    function ($scope, $localStorage, $sessionStorage, $location) {
         var init = function() {
             $scope.$storage = $localStorage.$default({ movies: [] });
             $scope.years = getYears();
             $scope.ratings = getRatings();
             $scope.newMovie = {};
-        }
+        };
 
         var getYears = function() {
             return _.range(2016, 1899, -1);
-        }
+        };
 
         var getRatings = function() {
             return _.range(1,11);
-        }
+        };
 
         $scope.createMovie = function () {
             // add to movies data structure
@@ -32,12 +32,8 @@ angular.module('moviesApp')
             $scope.newMovie.actors = '';
             $scope.newMovie.year = '';
             $scope.newMovie.rating = '';
-        };
-
-        $scope.deleteMovie = function (id) {
-            _.remove($scope.$storage.movies, function(movie) {
-                return movie.id === id;
-            });
+            console.log($scope.$storage.movies);
+            $location.path('/');
         };
 
         init();

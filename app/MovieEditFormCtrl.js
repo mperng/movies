@@ -1,21 +1,40 @@
 angular.module('moviesApp')
-    .controller('MovieEditFormCtrl', ['$scope', '$localStorage', '$sessionStorage', '$routeParams',
-    function ($scope, $localStorage, $sessionStorage, $routeParams) {
+    .controller('MovieEditFormCtrl', ['$scope', '$localStorage', '$sessionStorage', '$routeParams', '$location',
+    function ($scope, $localStorage, $sessionStorage, $routeParams, $location) {
         var id = parseInt($routeParams.movieId);
         var init = function() {
             $scope.$storage = $localStorage.$default({ movies: [] });
             $scope.editMovie = findMovie(id);
-        }
+            $scope.years = getYears();
+            $scope.ratings = getRatings();
+        };
+
+        var getYears = function() {
+            return _.range(2016, 1899, -1);
+        };
+
+        var getRatings = function() {
+            return _.range(1,11);
+        };
 
         var findMovie = function (id) {
             return _.find($scope.$storage.movies, {'id':id});
-        }
+        };
 
-        $scope.updateMovie = function (invalid) {
+        var save = function() {
+            $localStorage.movies = $scope.$storage.movies;
+            $location.path('/');
+        };
+
+        $scope.updateMovie = function () {
             // add to movies data structure
-            if(!invalid) {
-                _.merge(findMovie(id), $scope.editMovie);
-            }
+            _.merge(findMovie(id), $scope.editMovie);
+            save();
+        };
+
+        $scope.deleteMovie = function () {
+            _.remove($scope.$storage.movies, {'id':id});
+            save();
         };
 
         init();

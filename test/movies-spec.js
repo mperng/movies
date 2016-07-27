@@ -69,50 +69,6 @@ describe('MovieFormCtrl', function() {
         expect(test_movie2.year).toEqual(1880);
         expect(test_movie2.rating).toEqual(0);
     });
-
-    it('should delete a movie', function() {
-        var controller = createController();
-        scope.$storage.movies = [
-            {
-                id: 0,
-                title: 'Test Movie',
-                genre: 'Test Genre',
-                actors: ['Test Actor1', 'Test Actor2'],
-                year: 1900,
-                rating: 10
-            }
-        ];
-        scope.deleteMovie(0);
-        expect(scope.$storage.movies[0]).toEqual(undefined);
-        expect(scope.$storage.movies.length).toEqual(0);
-    });
-
-    it('should delete multiple movies', function() {
-        var controller = createController();
-        scope.$storage.movies = [
-            {
-                id: 0,
-                title: 'Test Movie',
-                genre: 'Test Genre',
-                actors: ['Test Actor1', 'Test Actor2'],
-                year: 1900,
-                rating: 10
-            },
-            {
-                id: 1,
-                title: 'Test Movie 1',
-                genre: 'Test Genre 1',
-                actors: ['Test Actor3', 'Test Actor4'],
-                year: 1880,
-                rating: 5
-            }
-        ];
-        scope.deleteMovie(0);
-        scope.deleteMovie(1);
-        expect(scope.$storage.movies[0]).toEqual(undefined);
-        expect(scope.$storage.movies[1]).toEqual(undefined);
-        expect(scope.$storage.movies.length).toEqual(0);
-    });
 });
 
 describe('MovieEditFormCtrl', function() {
@@ -192,4 +148,76 @@ describe('MovieEditFormCtrl', function() {
         expect(scope.$storage.movies[1].year).toEqual(1888);
         expect(scope.$storage.movies[1].rating).toEqual(0);
     });
+
+    it('should edit multiple movie attributes', function() {
+        routeParams = {movieId: 0};
+        var controller = createController();
+        scope.$storage.movies = [
+            {
+                id: 0,
+                title: 'Test Movie',
+                genre: 'Test Genre',
+                actors: ['Test Actor1', 'Test Actor2'],
+                year: 1900,
+                rating: 10
+            }
+        ];
+        scope.editMovie = {
+            title: 'Test Movie2',
+            genre: 'Action'
+        };
+        scope.updateMovie(false);
+        expect(scope.$storage.movies[0]);
+        expect(scope.$storage.movies[0].title).toEqual('Test Movie2');
+        expect(scope.$storage.movies[0].genre).toEqual('Action');
+        expect(scope.$storage.movies[0].actors).toEqual(['Test Actor1', 'Test Actor2']);
+        expect(scope.$storage.movies[0].year).toEqual(1900);
+        expect(scope.$storage.movies[0].rating).toEqual(10);
+    });
+
+
+    it('should delete a movie', function() {
+        routeParams = {movieId: 0};
+        var controller = createController();
+        scope.$storage.movies = [
+            {
+                id: 0,
+                title: 'Test Movie',
+                genre: 'Test Genre',
+                actors: ['Test Actor1', 'Test Actor2'],
+                year: 1900,
+                rating: 10
+            }
+        ];
+        scope.deleteMovie();
+        expect(scope.$storage.movies[0]).toEqual(undefined);
+        expect(scope.$storage.movies.length).toEqual(0);
+    });
+
+    it('should delete one movie out of multiple movies', function() {
+        routeParams = {movieId: 1};
+        var controller = createController();
+        scope.$storage.movies = [
+            {
+                id: 0,
+                title: 'Test Movie',
+                genre: 'Test Genre',
+                actors: ['Test Actor1', 'Test Actor2'],
+                year: 1900,
+                rating: 10
+            },
+            {
+                id: 1,
+                title: 'Test Movie 1',
+                genre: 'Test Genre 1',
+                actors: ['Test Actor3', 'Test Actor4'],
+                year: 1880,
+                rating: 5
+            }
+        ];
+        scope.deleteMovie();
+        expect(scope.$storage.movies[0]);
+        expect(scope.$storage.movies[1]).toEqual(undefined);
+        expect(scope.$storage.movies.length).toEqual(1);
+    })
 });

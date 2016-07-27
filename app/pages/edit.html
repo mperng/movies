@@ -1,7 +1,7 @@
 <h1>Edit Movie</h1>
 
 <div ng-controller="MovieEditFormCtrl">
-  <form name="form" ng-submit="editMovie(form.$invalid)" novalidate>
+  <form name="form" ng-submit="updateMovie()" novalidate>
   <div class="form-group">
     <label for="title">Title</label>
     <input type="text" class="form-control" ng-model="editMovie.title" id="title" required/>
@@ -23,5 +23,6 @@
       <select ng-model="editMovie.rating" ng-options="r for r in ratings" id="rating" style="width:auto;" class="form-control selectWidth" required></select>
   </div>
   <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">Edit Movie</button>
+  <button type="button" class="btn btn-danger" ng-click="deleteMovie()">Remove Movie</button>
 </form>
 </div>

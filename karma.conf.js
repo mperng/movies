@@ -16,7 +16,7 @@ module.exports = function(config) {
       'MovieEditFormCtrl.js',
       '../test/*spec.js'
     ],
-    logLevel: config.LOG_DEBUG,
+    logLevel: config.LOG_INFO,
     autoWatch: true,
 
     frameworks: ['jasmine'],
