@@ -1,4 +1,4 @@
-# movies
+# My Movie Collection
 A webpage that manages a home movie collection.
 
 # Setup
