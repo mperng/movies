@@ -2,7 +2,7 @@
 A webpage that manages a home movie collection.
 
 # Setup
-##Live Site:
+##Live Site
 go to https://pacific-gorge-29414.herokuapp.com/#/ in your browser and you will see the website.
 Disclaimer: I'm using Heroku free hosting, so availability may be spotty.
 
