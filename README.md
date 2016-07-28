@@ -1,11 +1,7 @@
 # My Movie Collection
-A webpage that manages a home movie collection.
+A webpage that manages a home movie collection - https://pacific-gorge-29414.herokuapp.com/#/
 
-# Setup
-##Live Site
-go to https://pacific-gorge-29414.herokuapp.com/#/ in your browser and you will see the website.
-Disclaimer: I'm using Heroku free hosting, so availability may be spotty.
-
+# Run Locally
 ##SimpleHTTPServer
 In terminal, type:
 python -m SimpleHTTPServer
