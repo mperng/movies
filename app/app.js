@@ -1,4 +1,4 @@
-var app = angular.module('moviesApp', ['ngRoute', 'ngStorage']);
+var app = angular.module('moviesApp', ['ngRoute', 'ngStorage', 'rx']);
 
 app.config(['$routeProvider', function($routeProvider) {
       $routeProvider
