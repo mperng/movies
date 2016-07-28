@@ -18,7 +18,6 @@ angular.module('moviesApp')
         };
 
         $scope.updateMovie = function () {
-            // add to movies data structure
             MovieSvc.updateMovie(id, $scope.editMovie);
             $location.path('/');
         };

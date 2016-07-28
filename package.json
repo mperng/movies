@@ -1,0 +1,19 @@
+{
+  "name": "moviesApp",
+  "version": "0.0.1",
+  "private": true,
+  "author": "mperng",
+  "devDependencies": {
+  },
+  "engines": {
+    "node": "4.4.7",
+    "npm": "3.10.2"
+  },
+  "scripts": {
+    "test": "karma start karma.conf.js"
+  },
+  "dependencies": {
+    "express": "4.14.0"
+  },
+  "cacheDirectories": ["node_modules"]
+}

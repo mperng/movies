@@ -16,10 +16,8 @@ angular.module('moviesApp')
         };
 
         $scope.createMovie = function () {
-            // add to movies data structure
             $scope.newMovie.id = $scope.$id;
             MovieSvc.createMovie($scope.newMovie);
-            // clear the fields
             $scope.newMovie.id = '';
             $scope.newMovie.title = '';
             $scope.newMovie.genre = '';
