@@ -23,6 +23,6 @@
       <select ng-model="editMovie.rating" ng-options="r for r in ratings" id="rating" style="width:auto;" class="form-control selectWidth" required></select>
   </div>
   <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">Edit Movie</button>
-  <button type="button" class="btn btn-danger" ng-click="deleteMovie()">Remove Movie</button>
+  <button type="button" class="btn btn-danger" ng-click="deleteMovie()"><i class="glyphicon glyphicon-trash"></i> Delete Movie</button>
 </form>
 </div>
