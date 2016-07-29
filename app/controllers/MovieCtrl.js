@@ -10,5 +10,9 @@ angular.module('moviesApp')
             $route.reload();
         };
 
+        $scope.deleteMovie = function (id) {
+            MovieSvc.deleteMovie(id);
+        };
+
         init();
     }]);
