@@ -14,6 +14,7 @@ node server.js
 Then go to 'http://127.0.0.1:8080' in a web browser and you will see the website.
 
 # External Packages Used
+- node, npm - for heroku deployment
 - bootstrap.css
 - karma
 - jasmine-core
