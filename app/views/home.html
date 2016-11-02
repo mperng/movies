@@ -20,11 +20,13 @@
             </li>
         </ul>
     </div>
-    <div ng-show="movies.length === 0">
+    <div ng-if="movies.length === 0">
         <div class="jumbotron">
             <p>It looks like you don't have any movies in your collection yet!</p>
             <p>Click <a href="#/create">here</a> to add a movie now!</p>
         </div>
     </div>
-    <button type="submit" class="btn btn-danger" ng-click="reset()" ng-show="movies.length > 0"><i class="glyphicon glyphicon-trash"></i> Delete All Movies</button>
+    <div ng-if="movies.length > 0">
+        <button type="submit" class="btn btn-danger" ng-click="reset()"><i class="glyphicon glyphicon-trash"></i> Delete All Movies</button>
+    </div>
 </div>
